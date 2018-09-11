@@ -1,5 +1,15 @@
 # kejia_sim
-gazebo simulation for kejia robot
+Gazebo simulator for Kejia robot
+- launch simulator
 ```
-roslaunch kejia_gazebo map.launch
+roslaunch kejia_sim kejia.launch
+```
+- remote control robot
+> with keyboard:
+```
+rosrun teleop_tools key_teleop.py
+```
+> with mouse
+```
+rosrun teleop_tools mouse_teleop.py
 ```
