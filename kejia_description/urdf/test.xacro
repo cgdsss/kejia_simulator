@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Revolute-Revolute Manipulator -->
+<robot name="rrbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<!--<xacro:property name="props" value="${load_yaml('kejia.yaml')}"/>-->
+<xacro:property name="props" value="${dict(a=1,b=2)}"/>
+
+<joint name="${props{a}}"/>
+</robot>

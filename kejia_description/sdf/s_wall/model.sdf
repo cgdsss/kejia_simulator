@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+    <model name='s_wall'>
+      <link name='Wall_1'>
+        <collision name='Wall_1_Collision'>
+          <geometry>
+            <box>
+              <size>9 0.5 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='Wall_1_Visual'>
+          <geometry>
+            <box>
+              <size>9 0.5 1</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+   </model>
+</sdf>

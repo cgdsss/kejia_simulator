@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://wall</uri>
+      <name>wall</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://kejia</uri>
+      <name>kejia</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <model name = "actor2">
+      <include>
+        <uri>model://person_walking</uri>
+        <name>person</name>
+        <pose>5 0 0 0 0 -90</pose>
+      </include>
+      <!--<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/kejia</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        <eStopTopic>/stop</eStopTopic>
+    
+      </plugin> -->
+        <plugin name="mcs_actor_plugin" filename="/usr/lib/x86_64-linux-gnu/gazebo-7/plugins/libMCSActorPlugin.so">
+              <jin>d</jin>
+              <loop>true</loop>
+              <delay_start>0.000000</delay_start>
+              <auto_start>true</auto_start>
+              <trajectory id="0" type="walking">
+                <waypoint>
+                  <time>0.000000</time>
+                  <pose>5.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>0.500000</time>
+                  <pose>4.195090 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>1.000000</time>
+                  <pose>3.382683 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>1.500000</time>
+                  <pose>2.555570 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>2.000000</time>
+                  <pose>1.707107 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>2.500000</time>
+                  <pose>0.831470 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>3.000000</time>
+                  <pose>-1.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+               <waypoint>
+                  <time>4.000000</time>
+                  <pose>-3.382683 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+               <!-- <waypoint>
+                  <time>4.500000</time>
+                  <pose>-3.555570 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                <waypoint>
+                  <time>5.500000</time>
+                  <pose>-4.555570 1.500000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                  <waypoint>
+                  <time>6.00000</time>
+                  <pose>-5.555570 1.300000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                    <waypoint>
+                  <time>6.50000</time>
+                  <pose>-6.555570 1.100000 0.000000 0.000000 0.000000 0.000000</pose>
+                </waypoint>
+                -->
+              </trajectory>
+        </plugin>
+      </model>
+  </world>
+</sdf>

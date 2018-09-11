@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="sofa">
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <gravity>false</gravity>
+      <inertial>
+	<mass>10</mass>
+      </inertial>
+      <visual name="visual">
+	<geometry>
+	  <mesh>
+	    <uri>model://sofa/meshes/sofa.dae</uri>
+	  </mesh>
+	</geometry>
+      </visual>
+      <collision name="sofa">
+	<geometry>
+	  <mesh>
+	    <uri>model://sofa/meshes/sofa.dae</uri>
+	  </mesh>
+	</geometry>
+      </collision>
+    </link>
+    <static>1</static>
+  </model>
+</sdf>
