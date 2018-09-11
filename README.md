@@ -8,10 +8,10 @@ roslaunch kejia_sim kejia.launch
 > with keyboard:
 
     ```
-    rosrun teleop_tools key_teleop.py
+        rosrun teleop_tools key_teleop.py
     ```
 > or with mouse:
 
     ```
-    rosrun teleop_tools mouse_teleop.py
+        rosrun teleop_tools mouse_teleop.py
     ```
