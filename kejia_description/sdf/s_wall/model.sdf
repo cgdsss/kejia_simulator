@@ -2,17 +2,17 @@
 <sdf version='1.6'>
     <model name='s_wall'>
       <link name='Wall_1'>
-        <collision name='Wall_1_Collision'>
+        <collision name='Wall_Collision'>
           <geometry>
             <box>
-              <size>9 0.5 1</size>
+              <size>5 0.15 0.7</size>
             </box>
           </geometry>
         </collision>
-        <visual name='Wall_1_Visual'>
+        <visual name='Wall_Visual'>
           <geometry>
             <box>
-              <size>9 0.5 1</size>
+              <size>5 0.15 0.7</size>
             </box>
           </geometry>
         </visual>
