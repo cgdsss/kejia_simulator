@@ -2,7 +2,7 @@
 Gazebo simulator for Kejia robot
 - launch simulator
 ```
-   roslaunch kejia_sim kejia.launch
+   roslaunch kejia_sim map.launch
 ```
 - remote control robot
 > with keyboard:
