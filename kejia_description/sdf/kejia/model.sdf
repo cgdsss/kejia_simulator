@@ -5,63 +5,60 @@
     <link name="laser_link">
       <pose>0.2 0 0.35 0 0 0</pose>
       <gravity>false</gravity>
-      <inertial>
-	<mass>0.1</mass>
-      </inertial>
       <visual name="visual">
-	<geometry>
-	  <mesh>
-	    <uri>file://hokuyo.dae</uri>
-	  </mesh>
-	</geometry>
+        <geometry>
+          <mesh>
+            <uri>file://hokuyo.dae</uri>
+          </mesh>
+        </geometry>
       </visual>
-    <sensor type="ray" name="head_hokuyo_sensor">
-      <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
-      <update_rate>40</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>800</samples>
-            <resolution>1</resolution>
-            <min_angle>-2</min_angle>
-            <max_angle>2</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.10</min>
-          <max>30.0</max>
-          <resolution>0.01</resolution>
-        </range>
-       <!-- <noise-->
-          <!--type>gaussian</type-->
-          <!-- Noise parameters based on published spec for Hokuyo laser
-               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
-               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-               reading. -->
-          <!--mean>0.0</mean-->
-          <!--stddev>0.01</stddev-->
-        <!--/noise-->
-      </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/scan</topicName>
-        <frameName>laser_link</frameName>
-      </plugin>
-    </sensor>
+      <sensor type="ray" name="head_hokuyo_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>true</visualize>
+        <update_rate>40</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>800</samples>
+              <resolution>1</resolution>
+              <min_angle>-2</min_angle>
+              <max_angle>2</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.10</min>
+            <max>30.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        <!-- <noise-->
+            <!--type>gaussian</type-->
+            <!-- Noise parameters based on published spec for Hokuyo laser
+                achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                reading. -->
+            <!--mean>0.0</mean-->
+            <!--stddev>0.01</stddev-->
+          <!--/noise-->
+        </ray>
+        <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+          <topicName>/scan</topicName>
+          <frameName>laser_link</frameName>
+        </plugin>
+      </sensor>
     </link>
     <!--base_link-->
     <link name="base_link">
 	    <sensor name='my_contact' type='contact'>
-	    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
-            <alwaysOn>true</alwaysOn>
-            <updateRate>5</updateRate>
-            <bumperTopicName>bumper</bumperTopicName>
-            <frameName>base_link</frameName>
-          </plugin>
-          <contact>
-            <collision>collision</collision>
-          </contact>
-        </sensor>
+        <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>5</updateRate>
+          <bumperTopicName>bumper</bumperTopicName>
+          <frameName>base_link</frameName>
+        </plugin>
+        <contact>
+          <collision>collision</collision>
+        </contact>
+      </sensor>
       <pose>0 0 0.16 0 0 0</pose>
       <inertial>
         <mass>5</mass>
@@ -94,20 +91,17 @@
     <link name="ev_link">
       <gravity>false</gravity>
       <sensor name='ev_contact' type='contact'>
-      <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
-            <alwaysOn>true</alwaysOn>
-            <updateRate>5</updateRate>
-            <bumperTopicName>bumper</bumperTopicName>
-            <frameName>ev_link</frameName>
-          </plugin>
-          <contact>
-            <collision>collision</collision>
-          </contact>
-        </sensor>
+        <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>5</updateRate>
+          <bumperTopicName>bumper</bumperTopicName>
+          <frameName>ev_link</frameName>
+        </plugin>
+        <contact>
+          <collision>collision</collision>
+        </contact>
+      </sensor>
       <pose>-0.1 0 0.7 0 0 0</pose>
-      <inertial>
-        <mass>2</mass>
-      </inertial>
       <collision name="collision">
         <geometry>
           <box>
@@ -125,10 +119,8 @@
       </visual>
     </link>
     <link name="kinect_link">
+      <gravity>false</gravity>
       <pose>-0.05 0 1.15 0 0 0</pose>
-      <inertial>
-        <mass>0.1</mass>
-      </inertial>
       <collision name="collision">
         <geometry>
           <box>
@@ -184,11 +176,11 @@
     <link name="back_wheel">
       <pose>-0.2 0 0.04 0 1.5707 1.5707</pose>
       <inertial>
-        <mass>50</mass>
+        <mass>10</mass>
         <inertia>
-          <ixx>0.13</ixx>
-          <iyy>0.152</iyy>
-          <izz>0.23</izz>
+          <ixx>0.0032</ixx>
+          <iyy>0.0032</iyy>
+          <izz>0.001</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -321,22 +313,20 @@
     </link>
     <!--left_wheel_joint-->
     <joint type="revolute" name="left_wheel_hinge">
-      <pose>0 0 0.11 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <child>left_wheel</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>true</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
       </axis>
     </joint>
     <!--right_wheel_joint-->
     <joint type="revolute" name="right_wheel_hinge">
-      <pose>0 0 0.11 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <child>right_wheel</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>true</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
       </axis>
     </joint>
     <joint type="revolute" name="back_wheel_hinge">
@@ -344,47 +334,25 @@
       <child>back_wheel</child>
       <parent>base_link</parent>
       <axis>
-        <xyz>0 1 0</xyz>
-        <use_parent_model_frame>true</use_parent_model_frame>
+        <xyz>0 0 1</xyz>
       </axis>
     </joint>
     <!--laser_joint-->
-    <joint name="hokuyo_joint" type="revolute">
+    <joint name="hokuyo_joint" type="fixed">
       <child>laser_link</child>
       <parent>base_link</parent>
-      <axis>
-        <xyz>0 0 0.3</xyz>
-        <limit>
-          <upper>0</upper>
-          <lower>0</lower>
-        </limit>
-      </axis>
     </joint>
     <!--ev_base_joint-->
-    <joint name="ev_base_joint" type="revolute">
+    <joint name="ev_base_joint" type="fixed">
       <child>ev_link</child>
       <parent>base_link</parent>
-      <axis>
-        <xyz>-0.05 0 0.34</xyz>
-        <limit>
-          <upper>0</upper>
-          <lower>0</lower>
-        </limit>
-      </axis>
     </joint>
     <!--ev_base_joint-->
-    <joint name="ev_kinect_joint" type="revolute">
+    <joint name="ev_kinect_joint" type="fixed">
       <child>ev_link</child>
       <parent>kinect_link</parent>
-      <axis>
-        <xyz>-0.05 0 1.12</xyz>
-        <limit>
-          <upper>0</upper>
-          <lower>0</lower>
-        </limit>
-      </axis>
     </joint>
-  <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>40</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
@@ -398,6 +366,6 @@
       <odometryRate>30.0</odometryRate>
       <robotBaseFrame>/base_link</robotBaseFrame>
       <legacyMode>false</legacyMode>
-  </plugin>
+    </plugin>
   </model>
 </sdf>
